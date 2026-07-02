@@ -1,0 +1,22 @@
+<svg width="1600" height="1000" viewBox="0 0 1600 1000" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Hero image placeholder">
+  <title>Hero image placeholder</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E9EBE6"/>
+      <stop offset="0.55" stop-color="#DFE3DC"/>
+      <stop offset="1" stop-color="#CFD6CC"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+
+  <!-- simple house line-art (not a photo, not a face) -->
+  <g transform="translate(800 470)" stroke="#14543B" stroke-opacity="0.5" stroke-width="7" fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M-150 30 L0 -100 L150 30"/>
+    <path d="M-120 10 L-120 150 L120 150 L120 10"/>
+    <path d="M-30 150 L-30 70 L30 70 L30 150"/>
+    <path d="M70 40 L100 40 L100 150"/>
+  </g>
+
+  <text x="800" y="720" text-anchor="middle" font-family="Georgia, serif" font-size="40" fill="#14543B" fill-opacity="0.75">Hero image placeholder</text>
+  <text x="800" y="772" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" fill="#5A5A5A">Replace with /images/hero.jpg — a real licensed lifestyle photo (not AI-generated)</text>
+</svg>

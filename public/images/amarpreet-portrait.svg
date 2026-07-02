@@ -1,0 +1,16 @@
+<svg width="720" height="900" viewBox="0 0 720 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder for the portrait of Amarpreet Bhui">
+  <title>Portrait placeholder — Amarpreet Bhui</title>
+  <rect width="720" height="900" fill="#F7F7F5"/>
+
+  <!-- Neutral head-and-shoulders silhouette (NOT a likeness). -->
+  <g transform="translate(360 470)">
+    <path d="M-205 400
+             C -205 220, -120 156, 0 156
+             C 120 156, 205 220, 205 400 Z"
+          fill="#DDDDD8"/>
+    <circle cx="0" cy="-70" r="150" fill="#DDDDD8"/>
+  </g>
+
+  <text x="360" y="690" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#5A5A5A">Portrait placeholder</text>
+  <text x="360" y="730" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#8A8A86">Replace with public/images/amarpreet-portrait.png</text>
+</svg>
