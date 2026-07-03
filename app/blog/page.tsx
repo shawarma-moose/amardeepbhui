@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   alternates: { canonical: '/blog' },
 };
 
-// Re-fetch from the Uplift AI API at most every 5 minutes.
-export const revalidate = 300;
+// Always render fresh from the Uplift AI API — never statically cached.
+export const dynamic = 'force-dynamic';
 
 export default async function BlogPage() {
   const { blogs } = await getBlogs({ page: 1, limit: 24 });

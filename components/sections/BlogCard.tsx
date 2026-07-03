@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, CalendarDays, Clock } from 'lucide-react';
+import { ArrowRight, CalendarDays, Clock, Newspaper } from 'lucide-react';
 import type { BlogSummary } from '@/lib/blog-api';
 import { formatBlogDate, estimateReadingTime } from '@/lib/blog-api';
 
@@ -27,7 +27,7 @@ export default function BlogCard({ blog }: { blog: BlogSummary }) {
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-evergreen/10 to-cream-2">
-            <span className="font-display text-h3 text-evergreen/40">Amarpreet Bhui</span>
+            <Newspaper className="h-9 w-9 text-evergreen/30" aria-hidden="true" />
           </div>
         )}
         {category && (

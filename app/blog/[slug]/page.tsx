@@ -9,9 +9,8 @@ import { Reveal } from '@/components/motion/Reveal';
 import { getBlog, formatBlogDate, estimateReadingTime } from '@/lib/blog-api';
 import { site } from '@/lib/site';
 
-// Render on demand and revalidate against the API every 5 minutes.
-export const revalidate = 300;
-export const dynamicParams = true;
+// Always render fresh from the Uplift AI API — never statically cached.
+export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({
   params,

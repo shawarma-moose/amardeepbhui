@@ -12,9 +12,6 @@
 
 const API_BASE = 'https://api.upliftai.co/api/public/v1';
 
-/** How long (seconds) Next.js caches a blog response before refetching. */
-const REVALIDATE_SECONDS = 300;
-
 export type BlogFreshness = {
   lastUpdatedAt?: string;
   ageDays?: number;
@@ -116,7 +113,10 @@ async function apiGet<T>(path: string): Promise<T | null> {
         Authorization: `Bearer ${token}`,
         Accept: 'application/json',
       },
-      next: { revalidate: REVALIDATE_SECONDS },
+      // The blog list/detail routes are `force-dynamic`, so they always fetch
+      // fresh per request. This revalidate window only applies where the fetch
+      // is used from a static route (the homepage preview), keeping it fast.
+      next: { revalidate: 300 },
     });
 
     if (!res.ok) {
