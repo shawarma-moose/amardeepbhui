@@ -90,7 +90,7 @@ export default function Hero() {
           >
             <ApplyNowButton size="lg" />
             <Button
-              href="/contact"
+              href="/about#contact"
               variant="secondary"
               size="lg"
               className="border-white/40 bg-white/10 text-white backdrop-blur-sm hover:border-white hover:bg-white/20 hover:text-white"

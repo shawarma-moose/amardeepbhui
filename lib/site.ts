@@ -88,6 +88,7 @@ export const nav: NavItem[] = [
       { label: 'First-Time Homebuyer', href: '/services/first-time-homebuyer' },
       { label: 'Investment Property', href: '/services/investment-property' },
       { label: 'Home Equity Loan', href: '/services/home-equity-loan' },
+      { label: 'Risk Management', href: '/services/risk-management' },
     ],
   },
   {
@@ -113,5 +114,4 @@ export const nav: NavItem[] = [
   { label: 'About', href: '/about' },
   { label: 'Testimonials', href: '/testimonials' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/contact' },
 ];

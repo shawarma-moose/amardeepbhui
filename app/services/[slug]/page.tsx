@@ -91,7 +91,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
         media={
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border shadow-frame">
             <Image
-              src={`/images/services/${service.slug}.jpg`}
+              src={service.image ?? `/images/services/${service.slug}.jpg`}
               alt={`${service.title} — mortgage services with Amarpreet Bhui`}
               fill
               priority
@@ -101,7 +101,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           </div>
         }
       >
-        <Button href="/contact" size="lg">
+        <Button href="/about#contact" size="lg">
           Get started <ArrowRight className="h-4 w-4" />
         </Button>
       </PageHero>
@@ -132,7 +132,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                 </h2>
                 <p className="mt-3 text-mist">{service.closing.body}</p>
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <Button href="/contact" size="lg">
+                  <Button href="/about#contact" size="lg">
                     Book a free consultation
                   </Button>
                   <a
@@ -162,7 +162,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                 Free, no-obligation consultation. Independent advice across Mississauga and Ontario.
               </p>
               <Button
-                href="/contact"
+                href="/about#contact"
                 className="mt-5 w-full !bg-white !text-evergreen hover:!bg-[var(--evergreen-deep)] hover:!text-white"
               >
                 Send a message

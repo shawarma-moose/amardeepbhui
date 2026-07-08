@@ -6,6 +6,7 @@ import {
   KeyRound,
   LineChart,
   PiggyBank,
+  ShieldCheck,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -31,6 +32,8 @@ export type Service = {
   /** One-line card teaser (from the home services grid) */
   summary: string;
   icon: LucideIcon;
+  /** Optional hero image override. Defaults to /images/services/{slug}.jpg */
+  image?: string;
   /** Full headline on the detail page */
   headline: string;
   /** Opening paragraph(s) */
@@ -778,6 +781,79 @@ export const services: Service[] = [
     closing: {
       heading: 'Ready to Tap Into Your Home’s Equity?',
       body: 'Contact Amarpreet Bhui today to discuss your options for a home equity loan or line of credit. We’ll help you unlock the value in your home and put it to work for you.',
+    },
+  },
+
+  {
+    slug: 'risk-management',
+    title: 'Risk Management',
+    summary:
+      'Protect your team and your business with comprehensive employee benefits and insurance solutions.',
+    icon: ShieldCheck,
+    image: '/images/services/risk-management.jpg',
+    headline: 'Risk Management — Comprehensive Employee Benefits & Insurance',
+    intro: [
+      'Protecting what matters most goes beyond your mortgage. Amarpreet Bhui helps individuals, families, and businesses put the right insurance and employee benefits in place—so an unexpected illness, injury, or loss never derails your financial plans. We take the time to understand your needs and design coverage that delivers real security and peace of mind.',
+    ],
+    blocks: [
+      {
+        kind: 'list',
+        heading: 'Comprehensive Employee Benefits',
+        intro:
+          'A well-designed benefits program helps you attract and retain talent while safeguarding your employees and their families. We offer a full range of group and individual insurance solutions:',
+        items: [
+          {
+            term: 'Group Health Insurance',
+            desc: 'Comprehensive medical coverage for employees and their families.',
+          },
+          {
+            term: 'Life & AD&D Insurance',
+            desc: 'Financial security for employees and their loved ones.',
+          },
+          {
+            term: 'Dental & Vision Plans',
+            desc: 'Affordable care solutions for essential health needs.',
+          },
+          {
+            term: 'Long-Term Care Insurance',
+            desc: 'Coverage for extended medical and caregiving needs.',
+          },
+          {
+            term: 'Disability Insurance',
+            desc: 'Income protection in case of illness or injury.',
+          },
+          {
+            term: 'Group Accident & Hospital Insurance',
+            desc: 'Financial protection against unexpected medical expenses.',
+          },
+        ],
+      },
+      {
+        kind: 'list',
+        heading: 'Why Choose Amarpreet Bhui for Risk Management?',
+        items: [
+          {
+            term: 'Tailored Coverage',
+            desc: 'We assess your unique situation and recommend plans that fit your people, your budget, and your goals.',
+          },
+          {
+            term: 'Wide Range of Providers',
+            desc: 'Access to a broad network of insurers means competitive rates and flexible plan designs.',
+          },
+          {
+            term: 'End-to-End Support',
+            desc: 'From plan setup to claims and renewals, we handle the details so you can focus on your business.',
+          },
+          {
+            term: 'Integrated Financial Advice',
+            desc: 'Coordinate your insurance and benefits with your broader mortgage and financial strategy under one trusted advisor.',
+          },
+        ],
+      },
+    ],
+    closing: {
+      heading: 'Protect Your Team and Your Future',
+      body: 'Contact Amarpreet Bhui today for a free consultation on employee benefits and insurance solutions. We’ll help you build coverage that protects what matters most.',
     },
   },
 ];

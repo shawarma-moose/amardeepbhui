@@ -1,11 +1,23 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, BadgeCheck, Calculator, BookOpen, Percent } from 'lucide-react';
+import {
+  ArrowRight,
+  BadgeCheck,
+  Calculator,
+  BookOpen,
+  Percent,
+  Phone,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Clock,
+} from 'lucide-react';
 import { site } from '@/lib/site';
 import PageHero from '@/components/layout/PageHero';
 import StatLedger from '@/components/motion/StatLedger';
 import CtaBand from '@/components/sections/CtaBand';
+import Socials from '@/components/layout/Socials';
 import Button from '@/components/ui/Button';
 import { Reveal, RevealGroup, RevealItem } from '@/components/motion/Reveal';
 
@@ -17,10 +29,10 @@ export const metadata: Metadata = {
 };
 
 const resourceCards = [
-  { title: 'Instant Eligibility', icon: BadgeCheck, href: '/contact' },
+  { title: 'Instant Eligibility', icon: BadgeCheck, href: '#contact' },
   { title: 'Affordability Calculator', icon: Calculator, href: '/calculators/affordability' },
   { title: 'Mortgage Guides', icon: BookOpen, href: '/resources/guides' },
-  { title: 'Best Rates', icon: Percent, href: '/contact' },
+  { title: 'Best Rates', icon: Percent, href: '#contact' },
 ];
 
 export default function AboutPage() {
@@ -77,8 +89,8 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <div className="mt-8">
-                <Button href="/contact" size="lg">
-                  Contact me <ArrowRight className="h-4 w-4" />
+                <Button href="#contact" size="lg">
+                  Get in touch <ArrowRight className="h-4 w-4" />
                 </Button>
               </div>
             </Reveal>
@@ -140,6 +152,115 @@ export default function AboutPage() {
               );
             })}
           </RevealGroup>
+        </div>
+      </section>
+
+      {/* Get in touch — details, socials & map (moved here from the old Contact page) */}
+      <section id="contact" className="scroll-mt-24 border-t border-border">
+        <div className="shell py-14 lg:py-16">
+          <Reveal>
+            <p className="eyebrow mb-4">Get in touch</p>
+            <h2 className="font-display text-h2 font-medium text-ink">
+              Let&rsquo;s start your mortgage journey
+            </h2>
+            <p className="mt-4 max-w-2xl text-body text-mist">
+              Ready to take the next step toward owning real estate in Southern Ontario? Call,
+              email, or message directly — I&rsquo;ll get back to you promptly.
+            </p>
+          </Reveal>
+
+          <div className="mt-10 grid gap-8 lg:grid-cols-2 lg:gap-12">
+            {/* Details + socials */}
+            <Reveal>
+              <div className="rounded-2xl border border-brass/20 bg-cream-2/40 p-7">
+                <ul className="space-y-4 text-mist">
+                  <li>
+                    <a
+                      href={site.phoneHref}
+                      className="group flex items-start gap-3 transition-colors hover:text-evergreen"
+                    >
+                      <Phone className="mt-0.5 h-5 w-5 shrink-0 text-evergreen" aria-hidden="true" />
+                      <span>
+                        <span className="block text-caption uppercase tracking-[0.14em] text-mist/80">Phone</span>
+                        <span className="font-semibold text-ink group-hover:text-evergreen">{site.phoneDisplay}</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={site.emailHref}
+                      className="group flex items-start gap-3 transition-colors hover:text-evergreen"
+                    >
+                      <Mail className="mt-0.5 h-5 w-5 shrink-0 text-evergreen" aria-hidden="true" />
+                      <span>
+                        <span className="block text-caption uppercase tracking-[0.14em] text-mist/80">Email</span>
+                        <span className="font-semibold text-ink group-hover:text-evergreen">{site.email}</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={site.whatsappHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-start gap-3 transition-colors hover:text-evergreen"
+                    >
+                      <MessageCircle className="mt-0.5 h-5 w-5 shrink-0 text-evergreen" aria-hidden="true" />
+                      <span>
+                        <span className="block text-caption uppercase tracking-[0.14em] text-mist/80">WhatsApp</span>
+                        <span className="font-semibold text-ink group-hover:text-evergreen">Message on WhatsApp</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={site.office.mapsHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-start gap-3 transition-colors hover:text-evergreen"
+                    >
+                      <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-evergreen" aria-hidden="true" />
+                      <span>
+                        <span className="block text-caption uppercase tracking-[0.14em] text-mist/80">Office</span>
+                        <span className="font-semibold text-ink group-hover:text-evergreen">
+                          {site.office.line1}, {site.office.city} {site.office.postal}
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Clock className="mt-0.5 h-5 w-5 shrink-0 text-evergreen" aria-hidden="true" />
+                    <span>
+                      <span className="block text-caption uppercase tracking-[0.14em] text-mist/80">Hours</span>
+                      <span className="font-semibold text-ink">Mon–Sat, by appointment</span>
+                    </span>
+                  </li>
+                </ul>
+
+                <div className="mt-6 border-t border-brass/15 pt-5">
+                  <span className="text-caption uppercase tracking-[0.14em] text-mist/80">Follow</span>
+                  <Socials className="mt-2" />
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Map */}
+            <Reveal delay={0.1}>
+              <div className="h-full min-h-[320px] overflow-hidden rounded-2xl border border-brass/20">
+                <iframe
+                  title={`Map to ${site.name}'s office`}
+                  src={site.office.mapEmbed}
+                  width="100%"
+                  height="100%"
+                  className="h-full min-h-[320px] w-full"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 

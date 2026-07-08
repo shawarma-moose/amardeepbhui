@@ -14,7 +14,7 @@ export default function CalcActions({
   return (
     <div className={cn('flex flex-col gap-2.5', className)}>
       <ApplyNowButton size="md" className="w-full justify-center" />
-      <Button href="/contact" variant="secondary" size="md" className="w-full justify-center">
+      <Button href="/about#contact" variant="secondary" size="md" className="w-full justify-center">
         Contact Amarpreet Bhui
       </Button>
       <SendCopyButton summary={summary} />

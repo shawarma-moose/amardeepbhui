@@ -12,7 +12,7 @@ const companyLinks = [
   { label: 'Mortgage Guides', href: '/resources/guides' },
   { label: 'FAQs', href: '/resources/faqs' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Contact', href: '/about#contact' },
 ];
 
 const calcLinks = [
@@ -125,6 +125,13 @@ export default function Footer() {
               </a>
             </li>
           </ul>
+
+          <div className="mt-5">
+            <h3 className="text-caption font-semibold uppercase tracking-[0.16em] text-ink">
+              Follow
+            </h3>
+            <Socials className="mt-3" />
+          </div>
         </div>
       </div>
 
