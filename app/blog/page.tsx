@@ -1,24 +1,46 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { ArrowRight, Instagram } from 'lucide-react';
 import PageHero from '@/components/layout/PageHero';
 import CtaBand from '@/components/sections/CtaBand';
 import BlogCard from '@/components/sections/BlogCard';
+import Pagination from '@/components/ui/Pagination';
 import { RevealGroup, RevealItem } from '@/components/motion/Reveal';
-import { getBlogs } from '@/lib/blog-api';
+import { getAllBlogs } from '@/lib/blog-api';
 import { site } from '@/lib/site';
 
-export const metadata: Metadata = {
-  title: 'Blog',
-  description:
-    'Mortgage insights and guidance from Amarpreet Bhui — tips on rates, renewals, refinancing, and tailored mortgage solutions in Southern Ontario.',
-  alternates: { canonical: '/blog' },
-};
+const PAGE_SIZE = 12;
+
+type Props = { searchParams: { page?: string | string[] } };
+
+/** `?page=` as a positive integer, defaulting to 1 for missing/invalid values. */
+function currentPage(searchParams: Props['searchParams']): number {
+  const raw = Array.isArray(searchParams.page) ? searchParams.page[0] : searchParams.page;
+  const n = Number(raw);
+  return Number.isInteger(n) && n > 1 ? n : 1;
+}
+
+const pageHref = (page: number) => (page === 1 ? '/blog' : `/blog?page=${page}`);
+
+export function generateMetadata({ searchParams }: Props): Metadata {
+  const page = currentPage(searchParams);
+  return {
+    title: page === 1 ? 'Blog' : `Blog — Page ${page}`,
+    description:
+      'Mortgage insights and guidance from Amarpreet Bhui — tips on rates, renewals, refinancing, and tailored mortgage solutions in Southern Ontario.',
+    alternates: { canonical: pageHref(page) },
+  };
+}
 
 // Always render fresh from the Uplift AI API — never statically cached.
 export const dynamic = 'force-dynamic';
 
-export default async function BlogPage() {
-  const { blogs } = await getBlogs({ page: 1, limit: 24 });
+export default async function BlogPage({ searchParams }: Props) {
+  const allBlogs = await getAllBlogs();
+  const totalPages = Math.max(1, Math.ceil(allBlogs.length / PAGE_SIZE));
+  const page = currentPage(searchParams);
+  if (page > totalPages) notFound();
+  const blogs = allBlogs.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   return (
     <>
@@ -31,13 +53,16 @@ export default async function BlogPage() {
 
       <section className="shell py-14 lg:py-16">
         {blogs.length > 0 ? (
-          <RevealGroup className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {blogs.map((blog) => (
-              <RevealItem key={blog.id ?? blog.slug} className="h-full">
-                <BlogCard blog={blog} />
-              </RevealItem>
-            ))}
-          </RevealGroup>
+          <>
+            <RevealGroup key={page} className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {blogs.map((blog) => (
+                <RevealItem key={blog.id ?? blog.slug} className="h-full">
+                  <BlogCard blog={blog} />
+                </RevealItem>
+              ))}
+            </RevealGroup>
+            <Pagination current={page} total={totalPages} hrefFor={pageHref} />
+          </>
         ) : (
           <div className="mx-auto max-w-md rounded-2xl border border-border bg-white p-10 text-center">
             <h2 className="font-display text-h3 font-medium text-ink">No posts yet</h2>

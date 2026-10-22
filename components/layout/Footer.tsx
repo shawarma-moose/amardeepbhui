@@ -27,7 +27,7 @@ export default function Footer() {
         {/* Brand column */}
         <div>
           <Link href="/" className="flex items-center gap-3" aria-label={`${site.name} — home`}>
-            <Image src={site.logoSrc} alt="Mortgage Alliance" width={44} height={44} className="h-10 w-auto" />
+            <Image src={site.logoSrc} alt="Mortgage Alliance" width={363} height={420} className="h-20 w-auto" />
             <span className="flex flex-col leading-none">
               <span className="font-display text-lg font-semibold text-ink">{site.name}</span>
               <span className="mt-0.5 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-brass">

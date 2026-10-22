@@ -62,9 +62,12 @@ export default function Header() {
             <Image
               src={site.logoSrc}
               alt="Mortgage Alliance"
-              width={44}
-              height={44}
-              className="h-9 w-auto"
+              width={363}
+              height={420}
+              className={cn(
+                'w-auto transition-all duration-300',
+                scrolled ? 'h-11' : 'h-[3.25rem]'
+              )}
               priority
             />
             <span className="flex flex-col leading-none">

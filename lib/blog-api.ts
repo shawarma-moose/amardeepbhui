@@ -155,10 +155,45 @@ export async function getBlogs(
   return { blogs: json.data.blogs ?? [], pagination: json.data.pagination };
 }
 
+/**
+ * Fetch every published blog by walking the paginated list endpoint until
+ * `totalPages` is reached. Never throws — a failed page just ends the walk.
+ */
+export async function getAllBlogs(pageSize = 50): Promise<BlogSummary[]> {
+  const MAX_PAGES = 50; // safety stop in case the API misreports pagination
+  const all: BlogSummary[] = [];
+  const seen = new Set<string>();
+
+  for (let page = 1; page <= MAX_PAGES; page++) {
+    const { blogs, pagination } = await getBlogs({ page, limit: pageSize });
+    for (const blog of blogs) {
+      const key = blog.id ?? blog.slug;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      all.push(blog);
+    }
+    if (blogs.length === 0 || !pagination || page >= pagination.totalPages) break;
+  }
+
+  return sortNewestFirst(all);
+}
+
+/**
+ * The API orders by `createdAt`, but posts can be back-dated, so sort by the
+ * publish date shown on the cards (newest first), falling back to `createdAt`.
+ */
+function sortNewestFirst(blogs: BlogSummary[]): BlogSummary[] {
+  const key = (b: BlogSummary) =>
+    b.publishDate ? `${b.publishDate}T${b.publishTime ?? '00:00'}` : (b.createdAt ?? '');
+  return [...blogs].sort(
+    (a, b) => key(b).localeCompare(key(a)) || (b.createdAt ?? '').localeCompare(a.createdAt ?? ''),
+  );
+}
+
 /** Convenience: the N most recent published posts (for the homepage preview). */
 export async function getLatestBlogs(limit = 3): Promise<BlogSummary[]> {
-  const { blogs } = await getBlogs({ page: 1, limit });
-  return blogs;
+  const blogs = await getAllBlogs();
+  return blogs.slice(0, limit);
 }
 
 /**
