@@ -27,11 +27,11 @@ const sans = Hanken_Grotesk({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.role} in Mississauga, ON`,
+    default: `Mortgage Broker in Mississauga | ${site.name}`,
     template: `%s · ${site.name}`,
   },
   description:
-    'Amarpreet Bhui is a licensed mortgage broker in Mississauga, Ontario with 15+ years of experience, $100M+ funded and 1,700+ mortgages approved. Get independent advice on renewals, refinances, first-time and self-employed mortgages.',
+    'Licensed Mississauga mortgage broker. 15+ years, 1,700+ mortgages approved. Compare lenders for purchases, renewals, refinances and self-employed.',
   keywords: [
     'mortgage broker Mississauga',
     'Ontario mortgage broker',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     locale: site.locale,
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — ${site.role} in Mississauga, ON`,
+    title: `Mortgage Broker in Mississauga | ${site.name}`,
     description:
       '15+ years, $100M+ funded, 1,700+ mortgages approved. Independent mortgage advice in Mississauga and across Ontario.',
   },

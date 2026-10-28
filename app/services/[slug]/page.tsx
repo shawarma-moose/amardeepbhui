@@ -10,6 +10,7 @@ import PageHero from '@/components/layout/PageHero';
 import Accordion from '@/components/ui/Accordion';
 import Button from '@/components/ui/Button';
 import CtaBand from '@/components/sections/CtaBand';
+import RichText, { plainText } from '@/components/ui/RichText';
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -20,7 +21,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!service) return {};
   return {
     title: service.title,
-    description: service.intro[0].slice(0, 155),
+    description: plainText(service.intro[0]).slice(0, 155),
     alternates: { canonical: `/services/${service.slug}` },
   };
 }
@@ -34,7 +35,9 @@ function Block({ block }: { block: ServiceBlock }) {
         )}
         <div className="mt-3 space-y-4 text-mist">
           {block.paragraphs.map((p, i) => (
-            <p key={i}>{p}</p>
+            <p key={i}>
+              <RichText text={p} />
+            </p>
           ))}
         </div>
       </div>
@@ -45,7 +48,11 @@ function Block({ block }: { block: ServiceBlock }) {
   return (
     <div>
       <h2 className="font-display text-h3 font-medium text-ink">{block.heading}</h2>
-      {block.intro && <p className="mt-3 text-mist">{block.intro}</p>}
+      {block.intro && (
+        <p className="mt-3 text-mist">
+          <RichText text={block.intro} />
+        </p>
+      )}
       <ListTag className="mt-5 space-y-4">
         {block.items.map((item, i) => (
           <li key={i} className="flex gap-3.5">
@@ -58,7 +65,7 @@ function Block({ block }: { block: ServiceBlock }) {
             )}
             <span className="text-mist">
               {item.term && <strong className="font-semibold text-ink">{item.term}: </strong>}
-              {item.desc}
+              <RichText text={item.desc} />
             </span>
           </li>
         ))}
@@ -80,7 +87,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
         title={service.headline}
         intro={service.intro.map((p, i) => (
           <p key={i} className={i > 0 ? 'mt-4' : ''}>
-            {p}
+            <RichText text={p} />
           </p>
         ))}
         crumbs={[
@@ -130,7 +137,9 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
                 <h2 className="font-display text-h3 font-medium text-ink">
                   {service.closing.heading}
                 </h2>
-                <p className="mt-3 text-mist">{service.closing.body}</p>
+                <p className="mt-3 text-mist">
+                  <RichText text={service.closing.body} />
+                </p>
                 <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
                   <Button href="/about#contact" size="lg">
                     Book a free consultation

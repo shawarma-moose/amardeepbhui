@@ -6,7 +6,8 @@ import { ArrowLeft, CalendarDays, Clock, RefreshCw } from 'lucide-react';
 import PageHero from '@/components/layout/PageHero';
 import CtaBand from '@/components/sections/CtaBand';
 import { Reveal } from '@/components/motion/Reveal';
-import { getBlog, formatBlogDate, estimateReadingTime } from '@/lib/blog-api';
+import { getBlog, getAllBlogs, formatBlogDate, estimateReadingTime } from '@/lib/blog-api';
+import { localizeBlogContent } from '@/lib/blog-links';
 import { site } from '@/lib/site';
 
 // Always render fresh from the Uplift AI API — never statically cached.
@@ -48,9 +49,10 @@ export async function generateMetadata({
 }
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  const blog = await getBlog(params.slug);
+  const [blog, allBlogs] = await Promise.all([getBlog(params.slug), getAllBlogs()]);
   if (!blog) notFound();
 
+  const content = localizeBlogContent(blog.content, new Set(allBlogs.map((b) => b.slug)));
   const date = formatBlogDate(blog.publishDate, blog.publishTime);
   const readingTime = estimateReadingTime(blog.content, blog.customFields?.readingTime);
   const lastUpdated = blog.freshness?.lastUpdatedAt
@@ -119,10 +121,11 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
 
           <Reveal>
             {/* Content is trusted HTML from the CMS — preserved as-is, including
-                any <script type="application/ld+json"> structured-data blocks. */}
+                any <script type="application/ld+json"> structured-data blocks.
+                Legacy miigrowth.com links are pointed back at this site. */}
             <div
               className="blog-prose"
-              dangerouslySetInnerHTML={{ __html: blog.content }}
+              dangerouslySetInnerHTML={{ __html: content }}
             />
 
             {/* Tags */}

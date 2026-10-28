@@ -1,3 +1,5 @@
+import { site } from '@/lib/site';
+
 export type FAQ = { q: string; a: string };
 export type FAQGroup = { category: string; items: FAQ[] };
 
@@ -95,5 +97,37 @@ export const faqGroups: FAQGroup[] = [
         a: 'Simply reach out for a free, no-obligation consultation. We’ll discuss your goals, outline the documents you’ll need, and begin your pre-approval right away.',
       },
     ],
+  },
+];
+
+/** Homepage FAQ: Mississauga-specific answers to the questions people ask first. */
+export const homeFaqs: FAQ[] = [
+  {
+    q: 'Why use a mortgage broker instead of my bank?',
+    a: 'A bank can only offer its own mortgages. As an independent broker, I compare banks, credit unions, monoline and alternative lenders with one application, then negotiate on your behalf. You see more options and keep one point of contact from pre-approval to closing. Read more in [Is a first-time homebuyer mortgage broker worth it?](/blog/first-time-homebuyer-mortgage-broker)',
+  },
+  {
+    q: 'How do you get paid?',
+    a: 'For most residential mortgages, the lender pays me a finder’s fee when your mortgage closes, so there is no cost to you. Some private or alternative mortgages carry a broker or lender fee. If one applies, it is disclosed to you in writing before you sign anything, as FSRA requires. Whoever you work with, ask how they are paid and get it in writing.',
+  },
+  {
+    q: 'My bank declined me, or my credit is bruised. Can you still help?',
+    a: 'Yes. One bank saying no does not mean every lender will. Lenders have different rules for credit scores, income and debt, and I work with prime lenders, alternative (B) lenders and private lenders. If a higher-cost option is the right short-term fix, we also plan your path back to a regular lender.',
+  },
+  {
+    q: 'I’m new to Canada. Can I buy a home in Mississauga?',
+    a: 'Often, yes. Several lenders have newcomer programs for permanent residents and work-permit holders, even with little Canadian credit history. Requirements vary, such as proof of employment, international credit references and, in some cases, a larger down payment. I match you with the program that fits.',
+  },
+  {
+    q: 'What is a reverse mortgage?',
+    a: 'A reverse mortgage lets homeowners aged 55 and older borrow up to 55% of their home’s value, tax-free, with no regular payments. It is repaid when you sell or move out. Interest builds over time, so I will compare it with a HELOC, a refinance or downsizing before you decide.',
+  },
+  {
+    q: 'How long does a pre-approval and rate hold last?',
+    a: 'Most rate holds last 90 to 120 days. If rates rise while you shop, you keep the held rate; if they fall, I push for the lower one. A pre-approval is not a final approval: the lender still has to approve the property and confirm your documents. See the [first-time homebuyer](/services/first-time-homebuyer) page for the full process.',
+  },
+  {
+    q: 'Which areas do you serve?',
+    a: `My office is at ${site.office.full}. I help buyers and homeowners across Mississauga, including Meadowvale, Erin Mills, Streetsville, Churchill Meadows, Port Credit, Malton and City Centre, as well as Brampton, Oakville, Milton and across Ontario by phone or video.`,
   },
 ];

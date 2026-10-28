@@ -51,11 +51,22 @@ export default function CountUp({
   const rounded = Math.round(value);
   const formatted = separator ? rounded.toLocaleString('en-CA') : String(rounded);
 
+  // The animated figure starts at 0, so the final value is also rendered as
+  // plain text for crawlers and screen readers.
+  const final = separator ? to.toLocaleString('en-CA') : String(to);
+
   return (
     <span ref={ref} className={className}>
-      {prefix}
-      <span className="nums">{formatted}</span>
-      {suffix}
+      <span aria-hidden="true">
+        {prefix}
+        <span className="nums">{formatted}</span>
+        {suffix}
+      </span>
+      <span className="sr-only">
+        {prefix}
+        {final}
+        {suffix}
+      </span>
     </span>
   );
 }

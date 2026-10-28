@@ -67,14 +67,12 @@ export default function Hero() {
 
       <div className="shell flex min-h-[82svh] items-center py-20 lg:min-h-[86vh] lg:py-28">
         <div className="max-w-xl text-white">
-          <motion.p
-            {...fade(0)}
-            className="mb-5 inline-block text-caption font-semibold uppercase tracking-[0.16em] text-white/80"
-          >
-            Mortgage Broker · Mississauga, ON
-          </motion.p>
-
-          <motion.h1 {...fade(0.1)} className="text-display-xl text-white">
+          {/* The keyword line is part of the H1 (styled as the eyebrow) so the
+              heading says what and where: "Mortgage Broker in Mississauga: …" */}
+          <motion.h1 {...fade(0)} className="text-display-xl text-white">
+            <span className="mb-5 block font-sans text-caption font-semibold uppercase leading-normal tracking-[0.16em] text-white/80">
+              Mortgage Broker in Mississauga<span className="sr-only">:</span>
+            </span>{' '}
             One application. Every lender working for you.
           </motion.h1>
 

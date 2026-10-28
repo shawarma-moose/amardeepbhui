@@ -67,7 +67,7 @@ export const guides: Guide[] = [
     title: 'Mortgage Calculators',
     icon: Calculator,
     body: 'Use our mortgage calculators to determine your affordability, estimate monthly payments, and see how different loan terms impact your budget. These tools are invaluable for comparing loan options and planning your financial future.',
-    href: '/calculators/mortgage',
+    href: '/calculators/mortgage-payment',
   },
   {
     title: 'Tips for Paying Off Your Mortgage Early',

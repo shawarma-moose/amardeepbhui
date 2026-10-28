@@ -3,6 +3,7 @@
 import { useState, useId } from 'react';
 import { Plus } from 'lucide-react';
 import { cn } from '@/lib/cn';
+import RichText from '@/components/ui/RichText';
 
 export type AccordionItem = { q: string; a: string };
 
@@ -53,7 +54,9 @@ export default function Accordion({
               hidden={!isOpen}
               className={cn('grid transition-all duration-300', isOpen ? 'pb-5' : '')}
             >
-              <p className="max-w-2xl text-mist">{item.a}</p>
+              <p className="max-w-2xl text-mist">
+                <RichText text={item.a} />
+              </p>
             </div>
           </div>
         );

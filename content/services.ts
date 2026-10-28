@@ -412,6 +412,15 @@ export const services: Service[] = [
         ],
       },
       {
+        kind: 'prose',
+        heading: 'Debt Consolidation: See What You Could Save',
+        paragraphs: [
+          'Credit cards and personal loans often charge 10% to 20% or more, while mortgage rates are usually far lower. Rolling that debt into your mortgage replaces several high-interest payments with one lower payment.',
+          'Illustrative example: $25,000 on credit cards at 19.99% costs about $416 a month in interest alone. The same $25,000 inside a mortgage at 5% costs about $104 a month in interest, a difference of roughly $312 a month. Your actual rate and savings depend on your lender, your equity and any penalty to break your current mortgage.',
+          'One caution: spreading short-term debt over a long amortization can cost more over time unless you keep paying it down. We will show you the full picture, including penalties and fees, before you decide. Run your own numbers with the [debt consolidation calculator](/calculators/debt-consolidation).',
+        ],
+      },
+      {
         kind: 'list',
         heading: 'Is Refinancing Right for You?',
         intro:
@@ -453,6 +462,20 @@ export const services: Service[] = [
         ],
       },
     ],
+    faqs: [
+      {
+        q: 'How much can I borrow when I refinance?',
+        a: 'In Canada, a conventional refinance lets you borrow up to 80% of your home’s appraised value, minus what you still owe on your current mortgage. Alternative and private lenders may have different limits.',
+      },
+      {
+        q: 'Is there a penalty to refinance before my term ends?',
+        a: 'Usually, yes. Variable-rate mortgages typically charge three months’ interest. Fixed-rate mortgages charge the greater of three months’ interest or the interest rate differential (IRD), which can be much higher. We get the exact figure from your lender so you can compare it against your savings.',
+      },
+      {
+        q: 'My bank declined my refinance. Do I have other options?',
+        a: 'Often, yes. Alternative lenders and private lenders look at your equity and overall situation, not just a credit score or income formula. We can also set out a plan to move you back to a regular lender once your situation improves.',
+      },
+    ],
     closing: {
       heading: 'Contact Amarpreet Bhui Today!',
       body: 'Ready to explore refinancing your mortgage? Contact Amarpreet Bhui for a free consultation. We’re here to help you make the most of your mortgage, with refinancing options that suit your financial needs.',
@@ -473,7 +496,7 @@ export const services: Service[] = [
         kind: 'list',
         heading: 'Why Choose Amarpreet Bhui for Your First Home?',
         intro:
-          'Buying your first home is more than just securing a loan; it’s about finding a mortgage that fits your lifestyle and long-term financial goals. Here’s how we can help:',
+          'Buying your first home is more than just securing a loan; it’s about finding a mortgage that fits your lifestyle and long-term financial goals. (Wondering whether a broker is worth it at all? Read [Is a first-time homebuyer mortgage broker worth it?](/blog/first-time-homebuyer-mortgage-broker)) Here’s how we can help:',
         items: [
           {
             term: 'Expert Guidance',
@@ -494,6 +517,15 @@ export const services: Service[] = [
         ],
       },
       {
+        kind: 'prose',
+        heading: 'Pre-Approval and Rate Holds, Explained',
+        paragraphs: [
+          'A pre-approval is a lender’s review of your income, credit, debts and down payment before you start house hunting. It tells you the most you can borrow, so you shop in the right price range and can make an offer with confidence.',
+          'Most pre-approvals also come with a rate hold, which usually lasts 90 to 120 days. If rates rise while you are shopping, you keep the held rate. If rates fall, we push for the lower rate instead.',
+          'A pre-approval is not a final approval. Once you have an accepted offer, the lender still has to approve the property and confirm your documents, so it is important not to change jobs or take on new debt in the meantime. Use the [affordability calculator](/calculators/affordability) for a quick estimate, then let us confirm the real number.',
+        ],
+      },
+      {
         kind: 'list',
         heading: 'What to Expect When Buying Your First Home',
         intro:
@@ -510,7 +542,7 @@ export const services: Service[] = [
           },
           {
             term: 'Exploring First-Time Buyer Programs',
-            desc: 'As a first-time homebuyer, you may be eligible for various government incentives and grants. We’ll walk you through these programs, such as the First-Time Home Buyer Incentive and the Home Buyers’ Plan, to see how they can benefit you.',
+            desc: 'As a first-time homebuyer, you may be eligible for various government incentives and grants. We’ll walk you through these programs, such as the First Home Savings Account (FHSA) and the Home Buyers’ Plan, to see how they can benefit you.',
           },
           {
             term: 'Choosing the Right Mortgage Product',
@@ -531,12 +563,12 @@ export const services: Service[] = [
         heading: 'First-Time Homebuyer Programs You Should Know About',
         items: [
           {
-            term: 'First-Time Home Buyer Incentive',
-            desc: 'This program offers shared equity mortgages to help reduce monthly mortgage payments without increasing your down payment.',
+            term: 'First Home Savings Account (FHSA)',
+            desc: 'Save up to $8,000 a year (to a $40,000 lifetime limit) toward your first home. Contributions are tax-deductible and qualifying withdrawals are tax-free.',
           },
           {
             term: 'Home Buyers’ Plan (HBP)',
-            desc: 'Allows first-time buyers to withdraw up to $35,000 from their Registered Retirement Savings Plan (RRSP) to put toward their home purchase.',
+            desc: 'Allows first-time buyers to withdraw up to $60,000 from their Registered Retirement Savings Plan (RRSP) to put toward their home purchase.',
           },
           {
             term: 'Land Transfer Tax Rebates',
@@ -557,6 +589,10 @@ export const services: Service[] = [
       {
         q: 'Should I choose a fixed-rate or variable-rate mortgage?',
         a: 'This depends on your financial goals and risk tolerance. We can help you weigh the pros and cons of each to make an informed decision.',
+      },
+      {
+        q: 'Can I get a mortgage if I’m new to Canada?',
+        a: 'Yes. Several lenders have newcomer programs for permanent residents and work-permit holders who have recently arrived, even with little or no Canadian credit history. Requirements vary by program, such as proof of employment, international credit references and a larger down payment in some cases. We match you with the lenders whose programs fit your situation.',
       },
     ],
     closing: {
@@ -749,10 +785,35 @@ export const services: Service[] = [
         ],
       },
       {
+        kind: 'list',
+        heading: 'Private, Second and Renovation Financing',
+        intro:
+          'When a bank says no, or breaking your mortgage would cost too much, there are other ways to use your equity:',
+        items: [
+          {
+            term: 'Second Mortgages',
+            desc: 'Borrow against your equity without breaking your first mortgage, so you avoid a penalty and keep your current rate.',
+          },
+          {
+            term: 'Private Mortgages',
+            desc: 'Short-term financing, often one or two years, from private lenders when banks decline because of credit, income or timing. Rates and fees are higher, so we always plan the exit back to a regular lender before you sign.',
+          },
+          {
+            term: 'Renovation Financing',
+            desc: 'Fund upgrades through a refinance, a HELOC, or a purchase-plus-improvements mortgage that adds the renovation cost to the purchase of a new home.',
+          },
+          {
+            term: 'Bridge Financing',
+            desc: 'Cover the gap between buying your next home and selling your current one. See our guide to [bridge loans in Mississauga](/blog/bridge-loan-mississauga).',
+          },
+        ],
+      },
+      {
         kind: 'prose',
         heading: 'Understanding Your Home’s Equity',
         paragraphs: [
           'To qualify for a home equity loan or line of credit, you’ll need to have built up a substantial amount of equity in your property. This is calculated by subtracting your outstanding mortgage balance from your home’s current market value. The more equity you have, the more borrowing power you possess.',
+          'Not sure which option fits? Read our comparison of [home equity loans, HELOCs, refinancing and second mortgages](/blog/home-equity-loan-vs-heloc-refinance-second-mortgage).',
         ],
       },
       {

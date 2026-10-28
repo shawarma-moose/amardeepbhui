@@ -9,8 +9,11 @@ import FeatureTrio from '@/components/sections/FeatureTrio';
 import TestimonialCarousel from '@/components/sections/TestimonialCarousel';
 import BlogPreview from '@/components/sections/BlogPreview';
 import CtaBand from '@/components/sections/CtaBand';
+import WhoIHelp from '@/components/sections/WhoIHelp';
+import Accordion from '@/components/ui/Accordion';
 import SectionHeading from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/motion/Reveal';
+import { homeFaqs } from '@/content/faqs';
 
 export default function HomePage() {
   return (
@@ -50,7 +53,7 @@ export default function HomePage() {
             View all services <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
-            href="/calculators/mortgage"
+            href="/calculators/mortgage-payment"
             className="inline-flex items-center gap-2 text-sm font-semibold text-evergreen transition-colors hover:text-aubergine"
           >
             <Calculator className="h-4 w-4" /> Try the mortgage calculator
@@ -58,10 +61,32 @@ export default function HomePage() {
         </Reveal>
       </section>
 
+      <WhoIHelp />
       <AboutPreview />
       <ProcessSteps />
       <FeatureTrio />
       <TestimonialCarousel />
+
+      {/* FAQ — the questions people ask before they call */}
+      <section id="faq" className="shell scroll-mt-28 py-16 lg:py-20">
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+          <SectionHeading
+            eyebrow="FAQ"
+            title="Mortgage questions, answered for Mississauga"
+            intro="Straight answers to what clients ask before their first call. Anything else, just ask."
+          />
+          <Reveal delay={0.1}>
+            <Accordion items={homeFaqs} />
+            <Link
+              href="/resources/faqs"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-evergreen transition-colors hover:text-aubergine"
+            >
+              More mortgage FAQs <ArrowRight className="h-4 w-4" />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
       <BlogPreview />
       <CtaBand />
     </>

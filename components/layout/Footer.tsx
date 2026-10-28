@@ -16,7 +16,7 @@ const companyLinks = [
 ];
 
 const calcLinks = [
-  { label: 'Mortgage Payment Calculator', href: '/calculators/mortgage' },
+  { label: 'Mortgage Payment Calculator', href: '/calculators/mortgage-payment' },
   { label: 'Affordability Calculator', href: '/calculators/affordability' },
 ];
 
